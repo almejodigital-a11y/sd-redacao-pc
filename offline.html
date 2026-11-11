@@ -1,0 +1,5 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>SD Redação</title>
+<style>body{margin:0;height:100vh;display:grid;place-items:center;background:#050b18;color:#e6ecf7;font-family:"Segoe UI",Inter,system-ui,sans-serif;text-align:center}
+img{width:90px}h2{margin:16px 0 6px;font-size:22px}p{color:#8fa6d8;margin:0 0 20px}button{background:#2f6bff;color:#fff;border:0;border-radius:12px;padding:13px 26px;font-size:15px;font-weight:700;cursor:pointer}</style></head>
+<body><div><img src="icone.png" alt=""><h2>Sem internet</h2><p>O painel precisa de internet. Confira o Wi-Fi e tente de novo.</p><button onclick="window.SD_PC?SD_PC.recarregar():location.reload()">Tentar de novo</button></div>
+<script>setInterval(()=>{if(navigator.onLine&&window.SD_PC)SD_PC.recarregar()},8000)</script></body></html>

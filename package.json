@@ -1,0 +1,22 @@
+{
+  "name": "sd-redacao",
+  "productName": "SD Redação",
+  "version": "1.0.0",
+  "description": "Redação SD Notícias — programa para computador",
+  "author": "Almejo Digital",
+  "main": "main.js",
+  "scripts": { "start": "electron .", "dist": "electron-builder --publish always" },
+  "dependencies": { "electron-updater": "6.3.9", "ffmpeg-static": "5.2.0", "ffprobe-static": "3.1.0" },
+  "devDependencies": { "electron": "33.2.1", "electron-builder": "25.1.8" },
+  "build": {
+    "appId": "com.almejo.sdredacao.pc",
+    "productName": "SD Redação",
+    "files": ["main.js", "preload.js", "motor.js", "abertura.html", "offline.html", "icone.png", "logo-sd.png", "node_modules/**/*"],
+    "asarUnpack": ["node_modules/ffmpeg-static/**", "node_modules/ffprobe-static/**"],
+    "directories": { "buildResources": "build" },
+    "publish": [{ "provider": "github", "owner": "almejodigital-a11y", "repo": "sd-redacao-pc", "releaseType": "release" }],
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }], "artifactName": "SD-Redacao-Instalar.${ext}" },
+    "nsis": { "oneClick": true, "perMachine": false, "createDesktopShortcut": "always", "shortcutName": "SD Redação", "runAfterFinish": true },
+    "linux": { "target": ["AppImage"], "category": "Office", "artifactName": "SD-Redacao.${ext}" }
+  }
+}
