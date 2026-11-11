@@ -16,6 +16,12 @@ jobs:
       - name: Testar o motor de vídeo (HEVC → moldura)
         shell: bash
         run: node teste-motor.js
+      - name: Foto da janela (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get install -y xvfb >/dev/null && xvfb-run -s "-screen 0 1400x900x24" npx electron --no-sandbox foto-janela.js || true
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'Linux'
+        with: { name: fotos, path: "*.png" }
       - name: Montar e publicar
         env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
         run: npx electron-builder --publish always
