@@ -1,7 +1,7 @@
 {
   "name": "sd-redacao",
   "productName": "SD Redação",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Redação SD Notícias — programa para computador",
   "author": "Almejo Digital",
   "main": "main.js",
@@ -75,6 +75,6 @@
       "category": "Office",
       "artifactName": "SD-Redacao.${ext}"
     },
-    "compression": "maximum"
+    "compression": "normal"
   }
 }

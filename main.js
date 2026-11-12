@@ -8,6 +8,9 @@ const PAINEL = "https://sd-redacao.pages.dev/painel/";
 const ICONE = nativeImage.createFromPath(path.join(__dirname, "icone.png"));
 let janela, abertura;
 
+if (process.platform === "linux") {   // notebooks Linux mais simples: tela X11 e desenho sem placa de vídeo (abre rápido e não trava)
+  app.commandLine.appendSwitch("ozone-platform", "x11"); app.commandLine.appendSwitch("no-sandbox"); app.disableHardwareAcceleration();
+}
 if (!app.requestSingleInstanceLock()) app.quit();
 app.on("second-instance", () => { if (janela) { if (janela.isMinimized()) janela.restore(); janela.focus(); } });
 app.setAppUserModelId("com.almejo.sdredacao.pc");
